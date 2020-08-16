@@ -1,0 +1,32 @@
+---
+all:
+  hosts:
+    whiskey:
+      ansible_host: whiskey.local
+    golf:
+      ansible_host: golf.local
+    romeo:
+      ansible_host: romeo.local
+    bravo:
+      ansible_host: bravo.local
+  children:
+    raspberry_pi:
+      hosts:
+        whiskey: {}
+        golf: {}
+        romeo: {}
+        bravo: {}
+    k3s_coordinator:
+      hosts:
+        whiskey: {}
+    k3s_worker:
+      hosts:
+        golf: {}
+        romeo: {}
+        bravo: {}
+    monitoring_server:
+      hosts:
+        whiskey: {}
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+    remote_user: pi
