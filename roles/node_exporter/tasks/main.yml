@@ -41,6 +41,7 @@
     dest: /etc/systemd/system/node_exporter.service
 
 - name: Start node_exporter service
+  become: yes
   service:
     name: node_exporter
     state: started
