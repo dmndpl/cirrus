@@ -1,8 +1,14 @@
 ---
-- name: Creating RPi exporter user group
-  group: name="{{groupId}}"
+
+- name: Create RPi exporter user group
+  become: yes
+  group:
+    name: "{{groupId}}"
+    state: present
+    system: true
 
 - name: Creating RPi exporter user
+  become: yes
   user:
     name: "{{userId}}"
     group: "{{groupId}}"
@@ -35,6 +41,7 @@
     state: absent
 
 - name: Copy systemd init file
+  become: yes
   template:
     src: rpi_exporter.service.j2
     dest: /etc/systemd/system/rpi_exporter.service

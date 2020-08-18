@@ -3,6 +3,7 @@
   become: true
 
 - name: Creating node_exporter user
+  become: yes
   user:
     name: "{{userId}}"
     group: "{{groupId}}"
@@ -34,6 +35,7 @@
     state: absent
 
 - name: Copy systemd init file
+  become: yes
   template:
     src: init.service.j2
     dest: /etc/systemd/system/node_exporter.service
