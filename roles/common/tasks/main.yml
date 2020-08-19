@@ -12,6 +12,7 @@
       - python3-pip
       - git
       - vim
+      - lsof
 - pip:
     name: glances
     executable: pip3
