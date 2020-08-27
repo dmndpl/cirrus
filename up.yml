@@ -11,3 +11,17 @@
   user: pi
   roles:
     - monitoring_server
+
+- hosts: k3s_worker
+  user: pi
+  become: yes
+  gather_facts: yes
+  roles:
+    - k3s_worker
+
+- hosts: k3s_coordinator
+  user: pi
+  become: yes
+  gather_facts: yes
+  roles:
+    - k3s_coordinator
