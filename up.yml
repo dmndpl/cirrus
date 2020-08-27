@@ -1,11 +1,13 @@
 ---
 - name: Playbook for initial setup
   hosts: raspberry_pi
-  user: pi
+  user: pi  
   roles:
     - common
     - rpi_exporter
     - node_exporter
+    - k3s_prereq
+    - k3s_download
 
 - hosts: monitoring_server
   user: pi
