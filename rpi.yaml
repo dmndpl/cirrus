@@ -1,0 +1,9 @@
+---
+- name: Install RPI exporter
+  hosts: raspberry_pi
+  user: dmndpl
+  roles:
+    - rpi_exporter
+
+  
+
