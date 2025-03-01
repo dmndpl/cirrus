@@ -1,13 +1,13 @@
 ---
 - name: Playbook for initial setup
   hosts: raspberry_pi
-  user: pi
+  user: dmndpl
   roles:
     - common
     - rpi_exporter
     - node_exporter
 
 - hosts: monitoring_server
-  user: pi
+  user: dmndpl
   roles:
     - monitoring_server

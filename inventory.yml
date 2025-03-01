@@ -3,12 +3,16 @@ all:
   hosts:
     whiskey:
       ansible_host: whiskey.local
+      ansible_user: dmndpl
     golf:
       ansible_host: golf.local
+      ansible_user: dmndpl
     romeo:
       ansible_host: romeo.local
+      ansible_user: dmndpl
     bravo:
       ansible_host: bravo.local
+      ansible_user: dmndpl
   children:
     raspberry_pi:
       hosts:
@@ -29,4 +33,4 @@ all:
         whiskey: {}
   vars:
     ansible_python_interpreter: /usr/bin/python3
-    remote_user: pi
+    remote_user: dmndpl
