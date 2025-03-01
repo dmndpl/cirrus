@@ -1,0 +1,10 @@
+---
+- name: Gather facts of all nodes
+  hosts: all
+  gather_facts: yes
+
+- name: Install prometheus on the monitoring server
+  hosts: monitoring_server
+  user: dmndpl
+  roles:
+    - monitoring_server

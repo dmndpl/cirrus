@@ -48,12 +48,11 @@
     path: '/tmp/prometheus-{{ prometheusVersion }}.linux-armv7'
     state: absent
 
-- name: Creates directory
+# Need to set permissions
+- name: Creates Data directory
   become: yes
-  become_user: root
-  become_method: sudo
   file:
-    path: "/data/prometheus/"
+    path: "{{prometheusDataDir}}"
     state: directory
     owner: "{{userId}}"
     group: "{{groupId}}"
@@ -73,6 +72,7 @@
 - name: Display IP address
   debug:
     var: hostvars[inventory_hostname]['ansible_facts']['eth0']['ipv4']['address']
+
 - name: Display host
   debug:
     var: inventory_hostname
